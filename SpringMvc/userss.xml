@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<users>
+  <user>
+    <age>20</age>
+    <id>1</id>
+    <username>张三</username>
+    <password>123456</password>
+  </user>
+  <user>
+    <age>25</age>
+    <id>2</id>
+    <username>李四</username>
+    <password>123456</password>
+  </user>
+</users>

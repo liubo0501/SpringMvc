@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student sex="0">
+	  <sId>1</sId>
+	  <sName>张三</sName>
+	  <age>18</age>
+	</student>
+	<student sex="0">
+	  <sId>2</sId>
+	  <sName>李四</sName>
+	  <age>28</age>
+	</student>
+	<student sex="1">
+	  <sId>3</sId>
+	  <sName>王五</sName>
+	  <age>38</age>
+	</student>
+</students>
