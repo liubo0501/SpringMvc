@@ -1,29 +1,22 @@
 package com.atoz.service.impl;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.stream.Stream;
 
 import org.apache.log4j.Logger;
 import org.jsoup.nodes.Document;
@@ -218,5 +211,32 @@ public class StudentServiceTestImpl {
 	 		for(Map.Entry<String, String> entry :map.entrySet()){
 	 			System.out.println(entry.getKey()+entry.getValue());
 	 		}
+	 	 }
+	 	 
+	 	 @Test  
+	 	 public void test12(){
+	 		 Stream.generate(Math::random).limit(5).forEach(System.out::println);
+	 		 Stream.generate(Math::random).limit(5).forEach(i -> System.out.println(i));
+	 		//c1 与 c2 是一样的（静态方法引用）
+	 	    Comparator<Integer> c2 = (x, y) -> Integer.compare(x, y);
+	 	    Comparator<Integer> c1 = Integer::compare;
+	 	    
+	 	    List<student> list = new ArrayList<>();
+			list.forEach(o -> {
+				System.out.println(o.getAge());
+				System.out.println(o.getsName());
+				}); 
+	 	    //下面两句是一样的（实例方法引用1）
+			list.forEach(e -> System.out.println(e));
+			list.forEach(System.out::println);
+	 	    
+	 	    //下面两句是一样的（实例方法引用2）
+			list.forEach(person -> person.getAge());
+			list.forEach(student::getAge);
+	 	    
+	 	    //下面两句是一样的（构造器引用）
+			List<String> strList = Arrays.asList("12","123");
+			strList.stream().map(s -> new Integer(s));
+			strList.stream().map(Integer::new);
 	 	 }
 }
